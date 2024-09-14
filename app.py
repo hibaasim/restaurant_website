@@ -31,12 +31,13 @@ def menu():
     return render_template('menu.html')
 
 
-@app.route('/reserve')
+@app.route('/reservation')
 def reserve():
     return render_template('book.html')
 
 
-# API endpoint to get menu items
+# API endpoint to get menu items (move to api folder for better amangement one file 
+# for menu items and the other for reservations)
 @app.route('/api/menu', methods=['GET'])
 def get_menu():
     return jsonify(menu_items)
