@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservation - Restaurant</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-</head>
+{% extends "layout.html" %}
+{% block content %}
 <body>
     <header>
         <h1>Make a Reservation</h1>
@@ -23,7 +17,7 @@
             <label for="date">Date:</label>
             <input type="date" id="date" required>
             <label for="time">Time:</label>
-            <input type="time" id="time" required>
+            <input type="time" id="time" required> /*add number of guests option and display reservation*/
             <button type="submit">Reserve</button>
         </form>
         <div id="reservation-message"></div>
@@ -32,4 +26,4 @@
         <p>© 2024 Restaurant Name</p>
     </footer>
 </body>
-</html>
+{% endblock content %}

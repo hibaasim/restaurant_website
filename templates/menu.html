@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - Restaurant</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <script src="{{ url_for('static', filename='js/scripts.js') }}" defer></script>
-</head>
+{% extends "layout.html" %}
+{% block content %}
 <body>
     <header>
         <h1>Our Menu</h1>
@@ -20,9 +13,12 @@
     <main>
         <h2>Delicious Dishes</h2>
         <ul id="menu-list"></ul>
+        {% for dish in menu %}
+            <li>{{dish.name}} {{dish.price}}</li>
+        {% endfor %}
     </main>
     <footer>
         <p>© 2024 Restaurant Name</p>
     </footer>
 </body>
-</html>
+{% endblock content %}

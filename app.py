@@ -18,22 +18,22 @@ reservations = []
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    return render_template('home.html', title='Home')
 
 
 @app.route('/about')
-def about():
-    return render_template('about.html')
+def about(): 
+    return render_template('about.html', title='About')
 
-
+  
 @app.route('/menu')
 def menu():
-    return render_template('menu.html')
+    return render_template('menu.html', menu=menu_items, title='Menu')
 
 
 @app.route('/reservation')
 def reserve():
-    return render_template('book.html')
+    return render_template('book.html', title='Reservation')
 
 
 # API endpoint to get menu items (move to api folder for better amangement one file 
@@ -47,7 +47,9 @@ def get_menu():
 def create_reservation():
     data = request.get_json()
     reservations.append(data)
-    return jsonify({"message": "Reservation created!", "data": data}), 201  
+    return jsonify({"message": "Reservation created!", "data": data}), 201
+
+#Add api to get reservation from file storage  
 
 if __name__=='__main__':
-    app.run()
+    app.run(debug=True)
