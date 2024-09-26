@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('/api/menu')
+    fetch('/menu')
         .then(response => response.json())
         .then(data => {
             const menuList = document.getElementById('menu-list');
@@ -21,7 +21,7 @@ document.getElementById('reservation-form').addEventListener('submit', function(
     const date = document.getElementById('date').value;
     const time = document.getElementById('time').value;
 
-    fetch('/api/reservation', {
+    fetch('/reservation', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
